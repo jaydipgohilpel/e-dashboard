@@ -1,0 +1,86 @@
+<form action="" [formGroup]="myForm">
+  <div class="container">
+    <h1>Register</h1>
+    <p>Please fill all details in this form to create an account.</p>
+    <hr />
+    <div class="form-element">
+      <label for="psw-repeat"><b>Name</b></label>
+      <input
+        type="text"
+        placeholder="Enter Name"
+        name="psw-repeat"
+        id="psw-repeat"
+        required
+        formControlName="name"
+      />
+      <div
+        *ngIf="
+          myForm.get('name')?.invalid &&
+          (myForm.get('name')?.dirty ||
+            (myForm.get('name')?.invalid && myForm.get('name')?.touched))
+        "
+        class="error-message"
+      >
+        Please provide a name.
+      </div>
+    </div>
+    <div class="form-element">
+      <label for="email"><b>Email</b></label>
+      <input
+        type="text"
+        placeholder="Enter Email"
+        name="email"
+        id="email"
+        required
+        formControlName="email"
+      />
+      <div
+        *ngIf="
+          myForm.get('email')?.invalid &&
+          (myForm.get('email')?.dirty ||
+            (myForm.get('email')?.invalid && myForm.get('email')?.touched))
+        "
+        class="error-message"
+      >
+        Please provide a Email.
+      </div>
+    </div>
+    <div class="form-element">
+      <label for="psw"><b>Password</b></label>
+      <input
+        type="password"
+        placeholder="Enter Password"
+        name="psw"
+        id="psw"
+        required
+        formControlName="password"
+        maxlength="8"
+      />
+      <div
+        *ngIf="
+          myForm.get('password')?.invalid &&
+          (myForm.get('password')?.dirty ||
+            (myForm.get('password')?.invalid &&
+              myForm.get('password')?.touched))
+        "
+        class="error-message"
+      >
+        Please provide a password.
+      </div>
+    </div>
+    <hr />
+
+    <button
+      type="submit"
+      class="registerbtn"
+      (click)="onSubmit()"
+      [disabled]="myForm.invalid"
+    >
+      Register
+    </button>
+  </div>
+
+  <div class="">
+    <p>Already have an account? <a href="#">Sign in</a>.</p>
+  </div>
+</form>
