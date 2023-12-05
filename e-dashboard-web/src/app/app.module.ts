@@ -8,6 +8,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,11 +20,14 @@ import { UpdateProductComponent } from './update-product/update-product.componen
     ProductListComponent,
     UpdateProductComponent,
     ProfileComponent,
-    AddProductComponent
+    AddProductComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
