@@ -1,0 +1,36 @@
+.navbar {
+  width: 100%;
+
+  background-color: #f1f1f1 !important;
+  overflow: auto;
+}
+
+.navbar a {
+  float: left;
+  padding: 12px;
+  color: #000 !important;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  color: #000 !important;
+  background-color: #ccc !important;
+}
+
+.profile-wrapper {
+  float: right;
+}
+
+
+
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+
+  .profile-wrapper {
+    float: left !important;
+  }
+}

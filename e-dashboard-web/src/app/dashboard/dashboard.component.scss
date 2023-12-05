@@ -1,0 +1,15 @@
+.outlet-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 1rem;
+}
+
+.outlet-wrapper {
+  width: 80%;
+}
+
+@media (max-width: 500px) {
+  .outlet-wrapper {
+    width: 90%;
+  }
+}
