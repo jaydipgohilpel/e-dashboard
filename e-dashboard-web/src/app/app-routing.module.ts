@@ -5,13 +5,14 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: AddProductComponent },
-  { path: 'products', component: ProductListComponent },
-  { path: 'add-products', component: AddProductComponent },
-  { path: 'update-product', component: UpdateProductComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: '', component: AddProductComponent, canActivate: [AuthGuard], },
+  { path: 'products', component: ProductListComponent, canActivate: [AuthGuard], },
+  { path: 'add-products', component: AddProductComponent, canActivate: [AuthGuard], },
+  { path: 'update-product', component: UpdateProductComponent, canActivate: [AuthGuard], },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard], },
   { path: 'sign-up', component: SignUpComponent },
 ];
 
