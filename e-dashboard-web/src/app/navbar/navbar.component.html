@@ -1,1 +1,10 @@
-<p>navbar works!</p>
+<h1>E-Commerce Dashboard</h1>
+<div class="navbar">
+  <a [routerLink]="'products'">Products</a>
+  <a [routerLink]="'add-products'">Add Product</a>
+  <a [routerLink]="'update-product'">Update Product</a>
+  <span class="profile-wrapper" >
+    <a [routerLink]="">Log Out</a>
+    <a [routerLink]="'profile'">Profile</a>
+  </span>
+</div>
