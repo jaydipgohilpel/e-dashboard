@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -11,9 +12,13 @@ import { Router } from '@angular/router';
 export class SignUpComponent {
   myForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private userService: UserService, private router: Router) { }
+  constructor(private fb: FormBuilder, private userService: UserService, private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
+    if (localStorage.getItem('token')) {
+      this.router.navigate(['/products']);
+      this.authService.setIsAuthentic(true)
+    }
     this.initForm()
   }
 
@@ -34,7 +39,8 @@ export class SignUpComponent {
     if (this.myForm.invalid) return
     this.userService.register(this.myForm.value).subscribe(user => {
       if (!user.data) return
-      localStorage.setItem('user', JSON.stringify(user.data));
+      localStorage.setItem('token', JSON.stringify(user.data));
+      this.authService.setIsAuthentic(true)
       this.initForm()
       this.router.navigate(['/products']);
     })
