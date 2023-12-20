@@ -6,8 +6,9 @@
   <a [routerLink]="'profile'">Profile</a>
 
   <span class="profile-wrapper">
-    <a (click)="logOut()">Log Out</a>
-    <a [routerLink]="'sign-up'">Sign Up</a>
-    <a [routerLink]="'log-in'">Login</a>
+    <a (click)="logOut()" *ngIf="isLogin;else template">Log Out</a>
+    <ng-template #template>
+      <a [routerLink]="'log-in'">Login</a>
+    </ng-template>
   </span>
 </div>
