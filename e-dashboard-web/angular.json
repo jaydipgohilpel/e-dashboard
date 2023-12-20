@@ -71,10 +71,12 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "e-dashboard-web:build:production"
+              "browserTarget": "e-dashboard-web:build:production",
+              "port": 4500
             },
             "development": {
-              "browserTarget": "e-dashboard-web:build:development"
+              "browserTarget": "e-dashboard-web:build:development",
+              "port": 4500
             }
           },
           "defaultConfiguration": "development"
