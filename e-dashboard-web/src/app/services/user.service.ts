@@ -15,4 +15,8 @@ export class UserService {
   register(payload: UserPayload): Observable<any> {
     return this.http.post(`register`, payload);
   }
+
+  login(payload: UserPayload): Observable<any> {
+    return this.http.post(`login`, payload);
+  }
 }

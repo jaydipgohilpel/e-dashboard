@@ -1,0 +1,40 @@
+<form action="" [formGroup]="loginForm">
+  <div class="container">
+    <h1>Login</h1>
+    <p>Please fill all details in this form to Login an account.</p>
+    <hr />
+    <div class="form-element">
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" id="email" required formControlName="email" />
+      <div *ngIf="
+          loginForm.get('email')?.invalid &&
+          (loginForm.get('email')?.dirty ||
+            (loginForm.get('email')?.invalid && loginForm.get('email')?.touched))
+        " class="error-message">
+        Invalid Email.
+      </div>
+    </div>
+    <div class="form-element">
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" id="psw" required formControlName="password"
+        maxlength="8" />
+      <div *ngIf="
+          loginForm.get('password')?.invalid &&
+          (loginForm.get('password')?.dirty ||
+            (loginForm.get('password')?.invalid &&
+              loginForm.get('password')?.touched))
+        " class="error-message">
+        Invalid password.
+      </div>
+    </div>
+    <hr />
+
+    <button type="submit" class="register-btn" (click)="onSubmit()" [disabled]="loginForm.invalid">
+      Login
+    </button>
+  </div>
+
+  <div class="">
+    <p>Don't have an account? Register Now <a [routerLink]="'/sign-up'">Register Now</a>.</p>
+  </div>
+</form>

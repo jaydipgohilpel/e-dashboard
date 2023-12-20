@@ -11,7 +11,7 @@ export class NavbarComponent {
   constructor(private router: Router, private authService: AuthService) { }
   logOut() {
     localStorage.removeItem('token');
-    this.router.navigate(['/sign-up']);
-    this.authService.setIsAuthentic(false)
+    this.router.navigate(['/log-in']);
+    this.authService.setIsAuthentic(false);
   }
 }

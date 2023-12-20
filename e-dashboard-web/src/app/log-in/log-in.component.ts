@@ -6,12 +6,12 @@ import { AuthService } from '../services/auth.service';
 import { NotificationService } from '../services/notification.service';
 
 @Component({
-  selector: 'app-sign-up',
-  templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.scss']
+  selector: 'app-log-in',
+  templateUrl: './log-in.component.html',
+  styleUrls: ['./log-in.component.scss']
 })
-export class SignUpComponent {
-  registerForm!: FormGroup;
+export class LogInComponent {
+  loginForm!: FormGroup;
 
   constructor(private fb: FormBuilder, private userService: UserService, private authService: AuthService, private router: Router, private NotificationService: NotificationService) { }
 
@@ -24,19 +24,22 @@ export class SignUpComponent {
   }
 
   initForm() {
-    this.registerForm = this.fb.group({
-      name: ['', Validators.required],
+    this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 
   onSubmit() {
-    if (this.registerForm.invalid) return
-    this.userService.register(this.registerForm.value).subscribe(user => {
-      if (!user.data) return;
-      this.NotificationService.showSuccess('Registration Successfully!');
+    if (this.loginForm.invalid) return
+    this.userService.login(this.loginForm.value).subscribe(user => {
+      if (user.error)
+        this.NotificationService.showError(user.error);
+      if (!user.token) return;
+      localStorage.setItem('token', JSON.stringify(user.token));
+      this.authService.setIsAuthentic(true);
       this.initForm();
+      this.router.navigate(['/products']);
     })
   }
 }
