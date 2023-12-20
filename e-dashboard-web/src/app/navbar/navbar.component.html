@@ -3,7 +3,7 @@
   <a [routerLink]="'products'">Products</a>
   <a [routerLink]="'add-products'">Add Product</a>
   <a [routerLink]="'update-product'">Update Product</a>
-  <a [routerLink]="'profile'">Profile</a>
+  <a [routerLink]="'profile'" *ngIf="isLogin">Profile</a>
 
   <span class="profile-wrapper">
     <a (click)="logOut()" *ngIf="isLogin;else template">Log Out</a>
