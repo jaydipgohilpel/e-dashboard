@@ -30,7 +30,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css"
             ],
             "scripts": []
           },
@@ -71,10 +73,12 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "e-dashboard-web:build:production"
+              "browserTarget": "e-dashboard-web:build:production",
+              "port": 4500
             },
             "development": {
-              "browserTarget": "e-dashboard-web:build:development"
+              "browserTarget": "e-dashboard-web:build:development",
+              "port": 4500
             }
           },
           "defaultConfiguration": "development"

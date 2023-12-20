@@ -15,12 +15,16 @@ export class HttpService {
     return this.http.get<any>(`${this.apiUrl}/${url}`);
   }
 
-  post(url: string, payload: any, options?: {
+  post(url: string, body: any, options?: {
     headers?: HttpHeaders | {
       [header: string]: string | string[];
     } | undefined
   }): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/${url}`, payload, options);
+    return this.http.post<any>(`${this.apiUrl}/${url}`, body, options);
+  }
+
+  put(url: string, body: any): Observable<any> {
+    return this.http.put<any>(`${this.apiUrl}/${url}`, body);
   }
 
   // getPosts(): Observable<any[]> {
