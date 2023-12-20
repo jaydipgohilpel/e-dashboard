@@ -32,11 +32,11 @@ app.post('/login', async (req, res) => {
                 res.status(200).json({ error: 'Invalid Email or Password', code: 200, success: false, });
             }
         } else {
-            res.status(404).json({ error: 'User not Exist', code: 404, success: false });
+            res.status(200).json({ error: 'User not Exist', code: 200, success: false });
         }
     }
     else {
-        res.status(400).json({ error: 'Email or Password not provided', code: 400, success: false });
+        res.status(200).json({ error: 'Email or Password not provided', code: 200, success: false });
     }
 })
 app.listen(4000)
