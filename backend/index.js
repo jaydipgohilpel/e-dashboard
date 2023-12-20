@@ -1,11 +1,13 @@
-const express = require('express')
-const mongoose = require('mongoose')
-const cors = require('cors')
-require('./db/config.js')
-const User = require('./db/User.js')
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+require('./db/config.js');
+const User = require('./db/User.js');
+const Product = require('./db/Product.js');
 const app = express();
 const jwt = require('jsonwebtoken');
 const { secret } = require('./secret/secretKey.js');
+const authenticateToken = require('./middleware/authenticate');
 
 app.use(express.json())
 app.use(cors());
@@ -44,4 +46,13 @@ app.post('/login', async (req, res) => {
         res.status(200).json({ error: 'Email or Password not provided', code: 200, success: false });
     }
 })
+
+app.post('/add-product', async (req, res) => {
+    req.body.is_active = true;
+    req.body.is_deleted = false;
+    const product = new Product(req.body);
+    let result = await product.save();
+    res.status(200).json({ data: result, code: 200, success: true });
+})
+
 app.listen(4000)
