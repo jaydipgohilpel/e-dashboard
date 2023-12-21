@@ -47,9 +47,15 @@ app.post('/login', async (req, res) => {
     }
 })
 
-app.post('/add-product', async (req, res) => {
-    req.body.is_active = true;
-    req.body.is_deleted = false;
+app.post('/add-product', authenticateToken, async (req, res) => {
+    if (!req.body.price) return res.status(200).json({ error: 'Please Enter valid Price', code: 200, success: false });
+    req.body = {
+        ...req.body,
+        is_active: true,
+        is_deleted: false,
+        price: parseInt(req.body.price),
+        user_id: req.user._id
+    }
     const product = new Product(req.body);
     let result = await product.save();
     res.status(200).json({ data: result, code: 200, success: true });
