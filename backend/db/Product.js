@@ -9,6 +9,7 @@ const productSchema = new mongoose.Schema({
     description: String,
     is_active: Boolean,
     is_deleted: Boolean,
+    inventoryStatus: String,
 });
 
 module.exports = mongoose.model('products', productSchema);

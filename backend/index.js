@@ -54,11 +54,17 @@ app.post('/add-product', authenticateToken, async (req, res) => {
         is_active: true,
         is_deleted: false,
         price: parseInt(req.body.price),
-        user_id: req.user._id
+        user_id: req.user._id,
+        inventoryStatus: 'INSTOCK',
     }
     const product = new Product(req.body);
     let result = await product.save();
     res.status(200).json({ data: result, code: 200, success: true });
+})
+
+app.get('/products', authenticateToken, async (req, res) => {
+    let product = await Product.find({ user_id: req.user._id });
+    res.status(200).json({ data: product, code: 200, success: true });
 })
 
 app.listen(4000)
