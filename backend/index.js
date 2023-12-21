@@ -67,4 +67,12 @@ app.get('/products', authenticateToken, async (req, res) => {
     res.status(200).json({ data: product, code: 200, success: true });
 })
 
+app.delete('/product/:id', authenticateToken, async (req, res) => {
+    const result = await Product.deleteOne({ _id: req.params.id })
+    result._id = req.params.id
+    if (result.deletedCount && result.acknowledged)
+        res.status(200).json({ data: result, code: 200, success: true });
+    else res.status(200).json({ error: 'Product Not Deleted', code: 200, success: false });
+})
+
 app.listen(4000)
