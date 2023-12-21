@@ -9,6 +9,7 @@ form {
 
 /* Full-width input fields */
 input[type="text"],
+input[type="number"],
 input[type="password"] {
   width: 100%;
   padding: 15px;
@@ -19,6 +20,7 @@ input[type="password"] {
 }
 
 input[type="text"]:focus,
+input[type="number"]:focus,
 input[type="password"]:focus {
   background-color: #ddd;
   outline: none;
@@ -37,10 +39,21 @@ a {
 
 .error-message {
   color: red;
+  font-size: 15px;
 }
 
 .form-element {
   min-height: 95px;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  display: none;
+}
+
+input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
 }
 
 @media (max-width: 500px) {
