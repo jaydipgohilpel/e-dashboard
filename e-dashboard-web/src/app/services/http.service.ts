@@ -27,9 +27,9 @@ export class HttpService {
     return this.http.put<any>(`${this.apiUrl}/${url}`, body);
   }
 
-  // getPosts(): Observable<any[]> {
-  //   return this.http.get<any[]>(`${this.apiUrl}/posts`);
-  // }
+  delete(id: string | number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/${id}`);
+  }
 
   // getPostById(id: number): Observable<any> {
   //   return this.http.get<any>(`${this.apiUrl}/posts/${id}`);
@@ -37,9 +37,5 @@ export class HttpService {
 
   // updatePost(id: number, post: any): Observable<any> {
   //   return this.http.put<any>(`${this.apiUrl}/posts/${id}`, post);
-  // }
-
-  // deletePost(id: number): Observable<any> {
-  //   return this.http.delete<any>(`${this.apiUrl}/posts/${id}`);
   // }
 }

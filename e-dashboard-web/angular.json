@@ -73,12 +73,12 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "e-dashboard-web:build:production",
-              "port": 4500
+              "port": 4500,
+              "buildTarget": "e-dashboard-web:build:production"
             },
             "development": {
-              "browserTarget": "e-dashboard-web:build:development",
-              "port": 4500
+              "port": 4500,
+              "buildTarget": "e-dashboard-web:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "e-dashboard-web:build"
+            "buildTarget": "e-dashboard-web:build"
           }
         },
         "test": {

@@ -9,6 +9,17 @@ import { AuthService } from '../services/auth.service';
 })
 export class NavbarComponent {
   constructor(private router: Router, private authService: AuthService) { }
+  isLogin: boolean = true
+
+  ngOnInit() {
+    this.authService.isAuthentic$.subscribe(auth => {
+      this.isLogin = auth;
+    })
+    localStorage.getItem('token') ?
+      this.isLogin = true
+      : this.isLogin = false;
+  }
+
   logOut() {
     localStorage.removeItem('token');
     this.router.navigate(['/log-in']);

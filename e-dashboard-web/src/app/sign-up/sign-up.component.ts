@@ -34,6 +34,8 @@ export class SignUpComponent {
   onSubmit() {
     if (this.registerForm.invalid) return
     this.userService.register(this.registerForm.value).subscribe(user => {
+      if (user.error)
+        this.NotificationService.showError(user.error);
       if (!user.data) return;
       this.NotificationService.showSuccess('Registration Successfully!');
       this.initForm();
