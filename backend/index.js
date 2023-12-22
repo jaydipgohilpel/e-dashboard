@@ -92,7 +92,7 @@ app.put('/product/:id', authenticateToken, async (req, res) => {
     else res.status(200).json({ error: 'No Product Found', code: 200, success: false });
 })
 
-app.get('/search/:key', async (req, res) => {
+app.get('/search/:key', authenticateToken, async (req, res) => {
     try {
         const regexKey = new RegExp(req.params.key, 'i'); // 'i' for case-insensitive search
 
