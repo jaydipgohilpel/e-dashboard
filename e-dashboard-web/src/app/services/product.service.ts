@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { UserPayload } from '../interface/user.interface';
+import { Product } from '../interface/product.interface';
 import { HttpService } from './http.service';
 
 @Injectable({
@@ -12,7 +12,7 @@ export class ProductService {
   apiUrl = environment.apiBaseUrl;
   constructor(private http: HttpService) { }
 
-  addProduct(payload: UserPayload): Observable<any> {
+  addProduct(payload: Product): Observable<any> {
     return this.http.post(`add-product`, payload);
   }
 
@@ -22,5 +22,9 @@ export class ProductService {
 
   deleteProduct(productId: String): Observable<any> {
     return this.http.delete(`product/${productId}`);
+  }
+
+  updateProduct(productId: String, payload: Product): Observable<any> {
+    return this.http.put(`product/${productId}`, payload);
   }
 }

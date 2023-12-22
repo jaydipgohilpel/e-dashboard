@@ -3,6 +3,7 @@ import { Product } from '../interface/product.interface';
 import { NotificationService } from '../services/notification.service';
 import { ProductService } from '../services/product.service';
 import { ConfirmationService } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -15,7 +16,7 @@ export class ProductListComponent {
   product!: Product;
   productDialog: boolean = false;
 
-  constructor(private NotificationService: NotificationService, private productService: ProductService, private confirmationService: ConfirmationService) { }
+  constructor(private NotificationService: NotificationService, private productService: ProductService, private confirmationService: ConfirmationService, private router: Router) { }
 
   ngOnInit() {
     this.productService.getProductList().subscribe(product => {
@@ -42,6 +43,8 @@ export class ProductListComponent {
   editProduct(product: Product) {
     this.product = { ...product };
     this.productDialog = true;
+    localStorage.setItem('productToUpdate', JSON.stringify(this.product));
+    this.router.navigate(['/update-product']);
   }
 
   deleteProduct(product: Product) {
