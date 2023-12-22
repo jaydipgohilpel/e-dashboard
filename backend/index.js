@@ -114,7 +114,7 @@ app.get('/search/:key', async (req, res) => {
         let result = await Product.find(query);
 
         if (result.length > 0) {
-            res.status(200).json({ data: result, code: 200, success: true });
+            res.status(200).json({ data: result, code: 200, success: true, count: result.length });
         } else {
             res.status(200).json({ error: 'No Result Found', code: 200, success: false });
         }
