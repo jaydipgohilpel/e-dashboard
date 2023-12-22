@@ -75,4 +75,21 @@ app.delete('/product/:id', authenticateToken, async (req, res) => {
     else res.status(200).json({ error: 'Product Not Deleted', code: 200, success: false });
 })
 
+app.get('/product/:id', authenticateToken, async (req, res) => {
+    const result = await Product.findOne({ _id: req.params.id })
+    if (result)
+        res.status(200).json({ data: result, code: 200, success: true });
+    else res.status(200).json({ error: 'No Product Found', code: 200, success: false });
+})
+
+app.put('/product/:id', authenticateToken, async (req, res) => {
+    let result = await Product.updateOne(
+        { _id: req.params.id },
+        { $set: req.body });
+    if (result.modifiedCount && result.acknowledged) {
+        res.status(200).json({ data: result, code: 200, success: true });
+    }
+    else res.status(200).json({ error: 'No Product Found', code: 200, success: false });
+})
+
 app.listen(4000)
