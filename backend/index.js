@@ -92,4 +92,36 @@ app.put('/product/:id', authenticateToken, async (req, res) => {
     else res.status(200).json({ error: 'No Product Found', code: 200, success: false });
 })
 
+app.get('/search/:key', async (req, res) => {
+    try {
+        const regexKey = new RegExp(req.params.key, 'i'); // 'i' for case-insensitive search
+
+        let query = {
+            $or: [
+                { name: { $regex: regexKey } },
+                { company: { $regex: regexKey } },
+                { category: { $regex: regexKey } },
+                { description: { $regex: regexKey } },
+                { inventoryStatus: { $regex: regexKey } }
+            ]
+        };
+
+        // Check if 'req.params.key' is a number (for price search)
+        if (!isNaN(req.params.key)) {
+            query.$or.push({ price: req.params.key });
+        }
+
+        let result = await Product.find(query);
+
+        if (result.length > 0) {
+            res.status(200).json({ data: result, code: 200, success: true });
+        } else {
+            res.status(200).json({ error: 'No Result Found', code: 200, success: false });
+        }
+    } catch (err) {
+        console.error('Error occurred during product search:', err);
+        res.status(500).json({ error: 'Internal Server Error', code: 500, success: false });
+    }
+});
+
 app.listen(4000)
