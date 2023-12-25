@@ -6,6 +6,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
 import { TagModule } from 'primeng/tag';
+import { CardModule } from 'primeng/card';
+import { AvatarModule } from 'primeng/avatar';
 
 @NgModule({
   declarations: [],
@@ -16,7 +18,9 @@ import { TagModule } from 'primeng/tag';
     DropdownModule,
     ButtonModule,
     TagModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    CardModule,
+    AvatarModule,
   ],
   exports: [
     TableModule,
@@ -24,7 +28,9 @@ import { TagModule } from 'primeng/tag';
     DropdownModule,
     ButtonModule,
     TagModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    CardModule,
+    AvatarModule,
   ]
 })
 export class PrimeNgModule { }

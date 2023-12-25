@@ -12,14 +12,6 @@ export class NotificationService {
     this.messageService.add({ severity: 'success', summary: 'Success', detail: message, life: 1500 });
   }
 
-  showInfo(message: string) {
-    this.messageService.add({ severity: 'info', summary: 'Info', detail: message, life: 1500 });
-  }
-
-  showWarn(message: string) {
-    this.messageService.add({ severity: 'warn', summary: 'Warn', detail: message, life: 1500 });
-  }
-
   showError(message: string) {
     this.messageService.add({ severity: 'error', summary: 'Error', detail: message, life: 1500 });
   }

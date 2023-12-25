@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { UserPayload } from '../interface/user.interface';
+import { jwtDecode } from 'jwt-decode';
+
 
 @Component({
   selector: 'app-profile',
@@ -7,4 +10,11 @@ import { Component } from '@angular/core';
 })
 export class ProfileComponent {
 
+  user!: UserPayload;
+  ngOnInit() {
+    let token = localStorage.getItem('token');
+    if (token) {
+      this.user = jwtDecode(token);
+    }
+  }
 }

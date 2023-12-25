@@ -1,8 +1,16 @@
 <div class="card">
-  <p-table [value]="products" [tableStyle]="{'min-width': '60rem'}">
+  <p-table [value]="products" [tableStyle]="{ 'min-width': '60rem' }">
     <ng-template pTemplate="caption">
-      <div class="flex align-items-center justify-content-between">
-        Products
+      <div class="table-header">
+        <h2>Products</h2>
+        <span class="p-input-icon-left">
+          <input
+            type="text"
+            pInputText
+            (input)="filter()"
+            [(ngModel)]="filterValue"
+          />
+        </span>
       </div>
     </ng-template>
     <ng-template pTemplate="header">
@@ -19,31 +27,50 @@
     </ng-template>
     <ng-template pTemplate="body" let-product>
       <tr>
-        <td>{{product.name}}</td>
-        <td>{{product.price | currency:'INR'}}</td>
-        <td>{{product.category}}</td>
-        <td>{{product.company}}</td>
-        <td>{{product.description}}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.price | currency : "INR" }}</td>
+        <td>{{ product.category }}</td>
+        <td>{{ product.company }}</td>
+        <td>{{ product.description }}</td>
         <td>
-          <i class="pi"
-            [ngClass]="{ 'text-green-500 pi-check-circle': product.is_active, 'text-red-500 pi-times-circle': !product.is_active }"></i>
+          <i
+            class="pi"
+            [ngClass]="{
+              'text-green-500 pi-check-circle': product.is_active,
+              'text-red-500 pi-times-circle': !product.is_active
+            }"
+          ></i>
         </td>
-        <td><p-tag [value]="product.inventoryStatus" [severity]="getSeverity(product.inventoryStatus)"></p-tag></td>
         <td>
-          <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded  mr-2 edit-button"
-            (click)="editProduct(product)"></button>
-          <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
-            (click)="deleteProduct(product)"></button>
+          <p-tag
+            [value]="product.inventoryStatus"
+            [severity]="getSeverity(product.inventoryStatus)"
+          ></p-tag>
+        </td>
+        <td>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-pencil"
+            class="p-button-rounded mr-2 edit-button"
+            (click)="editProduct(product)"
+          ></button>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-danger"
+            (click)="deleteProduct(product)"
+          ></button>
         </td>
       </tr>
     </ng-template>
     <ng-template pTemplate="summary">
       <div class="flex align-items-center justify-content-between">
-        In total there are {{products ? products.length : 0 }} products.
+        In total there are {{ products ? products.length : 0 }} products.
       </div>
     </ng-template>
-    <ng-template pTemplate="paginatorleft">
-    </ng-template>
+    <ng-template pTemplate="paginatorleft"> </ng-template>
   </p-table>
 </div>
 

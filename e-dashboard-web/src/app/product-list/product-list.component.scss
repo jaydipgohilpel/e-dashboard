@@ -9,3 +9,13 @@
 .edit-button {
   margin-right: 0.5rem;
 }
+
+.table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  h2 {
+    margin: 0px;
+  }
+}
