@@ -27,4 +27,8 @@ export class ProductService {
   updateProduct(productId: String, payload: Product): Observable<any> {
     return this.http.put(`product/${productId}`, payload);
   }
+
+  searchProduct(key: String): Observable<any> {
+    return this.http.get(`search/${key}`);
+  }
 }

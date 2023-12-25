@@ -15,10 +15,15 @@ export class ProductListComponent {
   products!: Product[];
   product!: Product;
   productDialog: boolean = false;
+  filterValue: string | undefined;
 
   constructor(private NotificationService: NotificationService, private productService: ProductService, private confirmationService: ConfirmationService, private router: Router) { }
 
   ngOnInit() {
+    this.getProductList();
+  }
+
+  getProductList() {
     this.productService.getProductList().subscribe(product => {
       if (product.error)
         this.NotificationService.showError(product.error);
@@ -66,4 +71,12 @@ export class ProductListComponent {
     });
   }
 
+
+  filter() {
+    if (!this.filterValue) return this.getProductList()
+    this.products = [];
+    this.productService.searchProduct(this.filterValue).subscribe(product => {
+      this.products = product.data;
+    })
+  }
 }
