@@ -1,0 +1,225 @@
+[{
+  "_id": {
+    "$oid": "65841dda53c55386b8f9fa5e"
+  },
+  "name": "TEST",
+  "price": 2222,
+  "category": "test",
+  "user_id": "6582b57acc3817344440dd6b",
+  "company": "test",
+  "description": "test",
+  "is_active": false,
+  "is_deleted": false,
+  "inventoryStatus": "INSTOCK",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65841dda53c55386b8f9fa60"
+  },
+  "name": "TEST",
+  "price": 2222,
+  "category": "test",
+  "user_id": "6582b57acc3817344440dd6b",
+  "company": "test",
+  "description": "test",
+  "is_active": false,
+  "is_deleted": false,
+  "inventoryStatus": "INSTOCK",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65841dda53c55386b8f9fa62"
+  },
+  "name": "TEST",
+  "price": 2222,
+  "category": "test",
+  "user_id": "6582b57acc3817344440dd6b",
+  "company": "test",
+  "description": "test",
+  "is_active": false,
+  "is_deleted": false,
+  "inventoryStatus": "INSTOCK",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65841df5f18c4933bd838c76"
+  },
+  "name": "test2",
+  "price": 234,
+  "category": "test2",
+  "user_id": "6582b57acc3817344440dd6b",
+  "company": "test2",
+  "description": "test2",
+  "is_active": true,
+  "is_deleted": false,
+  "inventoryStatus": "INSTOCK",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65842cf87797a7f54adf00e9"
+  },
+  "name": "test2 test",
+  "price": 23,
+  "category": "555",
+  "user_id": "6582b57acc3817344440dd6b",
+  "company": "../",
+  "description": "3252",
+  "is_active": true,
+  "is_deleted": false,
+  "inventoryStatus": "INSTOCK",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65842e8c2dc04f5e120ed8a8"
+  },
+  "name": "test2 test",
+  "price": 45,
+  "category": "test",
+  "user_id": "6582b57acc3817344440dd6b",
+  "company": "sdsd",
+  "description": "swdsd",
+  "is_active": true,
+  "is_deleted": false,
+  "inventoryStatus": "INSTOCK",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65842e8f2dc04f5e120ed8aa"
+  },
+  "name": "test2 test",
+  "price": 45,
+  "category": "test",
+  "user_id": "6582b57acc3817344440dd6b",
+  "company": "sdsd",
+  "description": "swdsd",
+  "is_active": true,
+  "is_deleted": false,
+  "inventoryStatus": "INSTOCK",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65842e8f2dc04f5e120ed8ac"
+  },
+  "name": "test2 test",
+  "price": 45,
+  "category": "test",
+  "user_id": "6582b57acc3817344440dd6b",
+  "company": "sdsd",
+  "description": "swdsd",
+  "is_active": true,
+  "is_deleted": false,
+  "inventoryStatus": "INSTOCK",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65843b538a3c556b3c7d9b12"
+  },
+  "name": "test2 test",
+  "price": 45,
+  "category": "test",
+  "user_id": "6582b57acc3817344440dd6b",
+  "company": "sdsd",
+  "description": "swdsd",
+  "is_active": true,
+  "is_deleted": false,
+  "inventoryStatus": "INSTOCK",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65843bc98a3c556b3c7d9b1d"
+  },
+  "name": "test2 test",
+  "price": 45,
+  "category": "test",
+  "user_id": "6582b57acc3817344440dd6b",
+  "company": "sdsd",
+  "description": "swdsd",
+  "is_active": true,
+  "is_deleted": false,
+  "inventoryStatus": "INSTOCK",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "65843d308a3c556b3c7d9b22"
+  },
+  "name": "test2 test",
+  "price": 45,
+  "category": "test",
+  "user_id": "6582b57acc3817344440dd6b",
+  "company": "sdsd",
+  "description": "swdsd",
+  "is_active": true,
+  "is_deleted": false,
+  "inventoryStatus": "INSTOCK",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "658442acef74e4e043455c99"
+  },
+  "name": "363636",
+  "price": 45,
+  "category": "36",
+  "user_id": "6582b57acc3817344440dd6b",
+  "company": "636363",
+  "description": "6363636",
+  "is_active": true,
+  "is_deleted": false,
+  "inventoryStatus": "INSTOCK",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "658581e49974e7a92d945fe9"
+  },
+  "name": "5452",
+  "price": 433434,
+  "category": "f",
+  "user_id": "6582b57acc3817344440dd6b",
+  "company": "342342",
+  "description": "2342323",
+  "is_active": true,
+  "is_deleted": false,
+  "inventoryStatus": "INSTOCK",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6589542f6ec29495a9ec45d1"
+  },
+  "name": "1111111111111111111111",
+  "price": 111111111,
+  "category": "1111111111111111111111",
+  "user_id": "6582c1105ad8616e587ff08f",
+  "company": "1111111111111111111111",
+  "description": "1111111111111111111111",
+  "is_active": true,
+  "is_deleted": false,
+  "inventoryStatus": "INSTOCK",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "658961ea85ab4d62783eca1d"
+  },
+  "name": "test2 test",
+  "price": 22222,
+  "category": "sdsd",
+  "user_id": "6582b57acc3817344440dd6b",
+  "company": "test2 test",
+  "description": "test2 test",
+  "is_active": true,
+  "is_deleted": false,
+  "inventoryStatus": "INSTOCK",
+  "__v": 0
+}]
