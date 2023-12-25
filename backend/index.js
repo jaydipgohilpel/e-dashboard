@@ -94,6 +94,56 @@ app.put('/product/:id', authenticateToken, async (req, res) => {
 
 app.get('/search/:key', authenticateToken, async (req, res) => {
     try {
+        // const pipeline = [
+        //     {
+        //         $match: {
+        //             'user_id': req.user._id,
+        //         }
+        //     },
+        //     {
+        //         $match: {
+        //             $or: [
+        //                 { 'price': parseInt(req.params.key) || 0 }, // Match if `price` matches the numeric value
+        //                 { 'name': { $regex: req.params.key, $options: 'i' } },
+        //                 { 'company': { $regex: req.params.key, $options: 'i' } },
+        //                 { 'category': { $regex: req.params.key, $options: 'i' } },
+        //                 { 'description': { $regex: req.params.key, $options: 'i' } },
+        //                 { 'inventoryStatus': { $regex: req.params.key, $options: 'i' } },
+        //                 { 'price': { $regex: toString(req.params.key), $options: 'i' }}, // Match if `price` matches the numeric value
+        //                 { 'price': req.params.key }, // Match if `price` matches the string value
+        //                 {
+        //                     $expr: {
+        //                         $cond: {
+        //                             if: { $eq: [{ $type: "$price" }, "double"] }, // Assuming price is stored as a numeric type
+        //                             then: { $eq: ["$price", parseFloat(req.params.key)] },
+        //                             else: { $eq: ["$price", req.params.key] }
+        //                         }
+        //                     }
+        //                 }
+        //             ]
+        //         }
+        //     },
+        //     {
+        //         $match: {
+        //             $or: [
+        //                 { 'price': req.params.key }, // Match if `price` matches the string value
+        //                 { 'price': parseInt(req.params.key) || 0 }, // Match if `price` matches the numeric value
+        //                 {
+        //                     $expr: {
+        //                         $cond: {
+        //                             if: { $eq: [{ $type: "$price" }, "double"] }, // Assuming price is stored as a numeric type
+        //                             then: { $eq: ["$price", parseFloat(req.params.key)] },
+        //                             else: { $eq: ["$price", req.params.key] }
+        //                         }
+        //                     }
+        //                 }
+        //             ]
+        //         }
+        //     }
+        // ];
+
+
+        // let user = await Product.aggregate(pipeline);
         const regexKey = new RegExp(req.params.key, 'i'); // 'i' for case-insensitive search
 
         let query = {
@@ -104,9 +154,12 @@ app.get('/search/:key', authenticateToken, async (req, res) => {
                 { description: { $regex: regexKey } },
                 { inventoryStatus: { $regex: regexKey } }
             ]
+            ,
+            $and: [
+                { user_id: req.user._id }
+            ]
         };
 
-        // Check if 'req.params.key' is a number (for price search)
         if (!isNaN(req.params.key)) {
             query.$or.push({ price: req.params.key });
         }
