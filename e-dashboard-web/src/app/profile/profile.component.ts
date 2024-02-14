@@ -12,7 +12,7 @@ export class ProfileComponent {
 
   user!: UserPayload;
   ngOnInit() {
-    let token = localStorage.getItem('token');
+    let token = JSON.parse(localStorage.getItem('user') || '');
     if (token) {
       this.user = jwtDecode(token);
     }

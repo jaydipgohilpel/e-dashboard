@@ -4,59 +4,110 @@
     <hr />
     <div class="form-element">
       <label for="psw-repeat"><b>Product Name</b></label>
-      <input type="text" placeholder="Enter Product Name" name="psw-repeat" id="psw-repeat" required
-        formControlName="name" />
-      <div *ngIf="
+      <input
+        type="text"
+        placeholder="Enter Product Name"
+        name="psw-repeat"
+        id="psw-repeat"
+        required
+        formControlName="name"
+      />
+      <div
+        *ngIf="
           productForm.get('name')?.invalid &&
           (productForm.get('name')?.dirty ||
-            (productForm.get('name')?.invalid && productForm.get('name')?.touched))
-        " class="error-message">
+            (productForm.get('name')?.invalid &&
+              productForm.get('name')?.touched))
+        "
+        class="error-message"
+      >
         *Name is required.
       </div>
     </div>
     <div class="form-element">
       <label for="psw-repeat"><b>Price</b></label>
-      <input type="number" placeholder="Enter Price" name="psw-repeat" id="psw-repeat" required
-        formControlName="price" />
-      <div *ngIf="
+      <input
+        type="number"
+        placeholder="Enter Price"
+        name="psw-repeat"
+        id="psw-repeat"
+        required
+        formControlName="price"
+      />
+      <div
+        *ngIf="
           productForm.get('price')?.invalid &&
           (productForm.get('price')?.dirty ||
-            (productForm.get('price')?.invalid && productForm.get('price')?.touched))
-        " class="error-message">
+            (productForm.get('price')?.invalid &&
+              productForm.get('price')?.touched))
+        "
+        class="error-message"
+      >
         *Price is required or Invalid.
       </div>
     </div>
     <div class="form-element">
       <label for="psw-repeat"><b>Category</b></label>
-      <input type="text" placeholder="Enter Category Name" name="psw-repeat" id="psw-repeat" required
-        formControlName="category" />
-      <div *ngIf="
+      <input
+        type="text"
+        placeholder="Enter Category Name"
+        name="psw-repeat"
+        id="psw-repeat"
+        required
+        formControlName="category"
+      />
+      <div
+        *ngIf="
           productForm.get('category')?.invalid &&
           (productForm.get('category')?.dirty ||
-            (productForm.get('category')?.invalid && productForm.get('category')?.touched))
-        " class="error-message">
+            (productForm.get('category')?.invalid &&
+              productForm.get('category')?.touched))
+        "
+        class="error-message"
+      >
         *Category is required.
       </div>
     </div>
     <div class="form-element">
       <label for="psw-repeat"><b>Company</b></label>
-      <input type="text" placeholder="Enter Company Name" name="psw-repeat" id="psw-repeat" required
-        formControlName="company" />
-      <div *ngIf="
+      <input
+        type="text"
+        placeholder="Enter Company Name"
+        name="psw-repeat"
+        id="psw-repeat"
+        required
+        formControlName="company"
+      />
+      <div
+        *ngIf="
           productForm.get('company')?.invalid &&
           (productForm.get('company')?.dirty ||
-            (productForm.get('company')?.invalid && productForm.get('company')?.touched))
-        " class="error-message">
+            (productForm.get('company')?.invalid &&
+              productForm.get('company')?.touched))
+        "
+        class="error-message"
+      >
         *Company is required.
       </div>
     </div>
     <div class="form-element">
       <label for="psw-repeat"><b>Description</b></label>
-      <input type="text" placeholder="Enter Description" name="psw-repeat" id="psw-repeat" required
-        formControlName="description" />
+      <input
+        type="text"
+        placeholder="Enter Description"
+        name="psw-repeat"
+        id="psw-repeat"
+        required
+        formControlName="description"
+      />
     </div>
     <hr />
-    <button type="submit" class="register-btn" (click)="onSubmit()" [disabled]="productForm.invalid">
+    <button
+      type="submit"
+      class="register-btn"
+      (click)="onSubmit()"
+      [disabled]="productForm.invalid"
+    >
       Update
     </button>
   </div>
